@@ -5,7 +5,7 @@
 library(geomorph)
 library(tidyverse)
 
-# All of the steps of the analysis are wrapped up in a single function, which reads in the raw landmark data, superimposes it for standardization, and performs a PCA on the standardized coordinates:
+# All of the steps of the analysis are wrapped up in a single function, which reads in the raw landmark data, superimposes it for standardization, and performs a PCA on the standardized coordinates. 
 geometricMorphometricPCA <- function(dataFile, pointColor, figureTitle) {
   data <- geomorph::readland.tps(file = dataFile, specID = "ID")
   
@@ -85,6 +85,7 @@ geometricMorphometricPCA <- function(dataFile, pointColor, figureTitle) {
   plot(allPlots)
 }
 
+# To run this function, supply the data filename; the color you want your points to be; and a text string for the figure title. 
 AntHeadPCA <- geometricMorphometricPCA(dataFile = "./Data/ExampleLandmarks.txt", pointColor = "#F4B266", figureTitle = "Ant Head Shape")
 plot(AntHeadPCA)
 ggsave(filename = "AntHeadPCA.png", device = "png", path = "./Plots/PCAs/", width = 16, height = 9, bg = "transparent")
